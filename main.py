@@ -13,7 +13,9 @@ match color_type:
         red = int(input("Red value : "))
         green = int(input("Green value : "))
         blue = int(input("Blue value : "))
-        rgb_to_hex(red, green, blue)
+        hex_val = rgb_to_hex(red, green, blue)
+
+        print(f'rgb({red}, {green}, {blue}) => {hex_val}')
         # rgb_to_hsl(red, green, blue)
     case 2:
         print("You chose hex")
