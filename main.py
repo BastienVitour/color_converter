@@ -19,11 +19,13 @@ match color_type:
         # rgb_to_hsl(red, green, blue)
     case 2:
         print("You chose hex")
-        red = int(input("Red value : "))
-        green = int(input("Green value : "))
-        blue = int(input("Blue value : "))
-        hex_to_rgb(red, green, blue)
-        hex_to_hsl(red, green, blue)
+        red = input("Red value : ")
+        green = input("Green value : ")
+        blue = input("Blue value : ")
+        rgb_val = hex_to_rgb(red, green, blue)
+
+        print(f'#{red.upper()}{green.upper()}{blue.upper()} => {rgb_val}')
+        # hex_to_hsl(red, green, blue)
 
     case 3:
         print("You chose hsl")

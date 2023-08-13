@@ -10,12 +10,12 @@ def rgb_to_hex(r, g, b):
 
         hex_blue = hex_tab[b // 16] + hex_tab[b % 16]
 
-        hex_value = "#"+hex_red+hex_green+hex_blue
+        hex_value = "#" + hex_red+hex_green+hex_blue
 
         return hex_value
 
     else:
-        print("Invalid values");
+        print("Invalid values")
         return False
 
 
@@ -24,7 +24,16 @@ def rgb_to_hsl(r, g, b):
 
 
 def hex_to_rgb(r, g, b):
-    print(r, g, b)
+    red = list(r.upper())
+    rgb_red = hex_tab.index(red[0]) * 16 + hex_tab.index(red[1])
+    green = list(g.upper())
+    rgb_green = hex_tab.index(green[0]) * 16 + hex_tab.index(green[1])
+    blue = list(b.upper())
+    rgb_blue = hex_tab.index(blue[0]) * 16 + hex_tab.index(blue[1])
+
+    rgb_val = "rgb(" + str(rgb_red) + ", " + str(rgb_green) + ", " + str(rgb_blue) + ")"
+
+    return rgb_val
 
 
 def hex_to_hsl(r, g, b):
