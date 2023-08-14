@@ -5,6 +5,10 @@ def rgb_to_hex(r, g, b):
     if r < 0 or r > 255 or g < 0 or g > 255 or b < 0 or b > 255:
         exit("Invalid value(s)")
 
+    print(r)
+    print(g)
+    print(b)
+
     hex_red = hex_tab[r // 16]+hex_tab[r % 16]
 
     hex_green = hex_tab[g // 16]+hex_tab[g % 16]
@@ -39,7 +43,6 @@ def rgb_to_hsl(r, g, b):
         if segment < 0:
             shift = 360 / 60
         hue = segment + shift
-
     elif max_val == green:
         segment = (blue - red) / d
         shift = 120 / 60
@@ -74,9 +77,37 @@ def hex_to_hsl(r, g, b):
     return rgb_to_hsl(rgb_vals[0], rgb_vals[1], rgb_vals[2])
 
 
-def hsl_to_rgb(h, s, l):
-    print(h, s, l)
+def hsl_to_rgb(h, s, li):
+    d = (s / 100) * (1 - abs(2 * (li / 100) - 1))
+
+    x = d * (1 - abs((h / 60) % 2 - 1))
+
+    m = (li / 100) - d / 2
+
+    # r = g = b = 0
+
+    if 0 <= h < 60:
+        r, g, b = d, x, 0
+    if 60 <= h < 120:
+        r, g, b = x, d, 0
+    if 120 <= h < 180:
+        r, g, b = 0, d, x
+    if 180 <= h < 240:
+        r, g, b = 0, x, d
+    if 240 <= h < 300:
+        r, g, b = x, 0, d
+    if 300 <= h < 360:
+        r, g, b = d, 0, x
+
+    red = (r + m) * 255
+    green = (g + m) * 255
+    blue = (b + m) * 255
+
+    return [int(round(red)), int(round(green)), int(round(blue))]
 
 
-def hsl_to_hex(h, s, l):
-    print(h, s, l)
+def hsl_to_hex(h, s, li):
+
+    rgb_vals = hsl_to_rgb(h, s, li)
+
+    return rgb_to_hex(rgb_vals[0], rgb_vals[1], rgb_vals[2])

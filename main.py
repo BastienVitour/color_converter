@@ -32,8 +32,11 @@ match color_type:
 
     case 3:
         print("You chose hsl")
-        hue = int(input("Hue value : "))
-        saturation = int(input("Saturation value : "))
-        lightness = int(input("Lightness value : "))
-        hsl_to_rgb(hue, saturation, lightness)
-        hsl_to_hex(hue, saturation, lightness)
+        hue = float(input("Hue value : "))
+        saturation = float(input("Saturation value : "))
+        lightness = float(input("Lightness value : "))
+        rgb_val = hsl_to_rgb(hue, saturation, lightness)
+        hex_val = hsl_to_hex(hue, saturation, lightness)
+
+        print(f'hsl({hue}, {saturation}, {lightness}) => rgb({rgb_val[0]}, {rgb_val[1]}, {rgb_val[2]})')
+        print(f'hsl({hue}, {saturation}, {lightness}) => #{hex_val[0]}{hex_val[1]}{hex_val[2]}')
