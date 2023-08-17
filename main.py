@@ -10,14 +10,15 @@ color_type = int(input())
 match color_type:
     case 1:
         print("You chose rgb")
-        red = int(input("Red value : "))
-        green = int(input("Green value : "))
-        blue = int(input("Blue value : "))
-        hex_val = rgb_to_hex(red, green, blue)
-        hsl_val = rgb_to_hsl(red, green, blue)
+        #red = int(input("Red value : "))
+        #green = int(input("Green value : "))
+        #blue = int(input("Blue value : "))
+        value = input("Value : ")
+        hex_val = rgb_to_hex(value)
+        hsl_val = rgb_to_hsl(value)
 
-        print(f'rgb({red}, {green}, {blue}) => #{hex_val[0]}{hex_val[1]}{hex_val[2]}')
-        print(f'rgb({red}, {green}, {blue}) => hsl({hsl_val[0]}°, {hsl_val[1]}%, {hsl_val[2]}%)')
+        print(f'{value} => #{hex_val[0]}{hex_val[1]}{hex_val[2]}')
+        print(f'{value} => hsl({hsl_val[0]}°, {hsl_val[1]}%, {hsl_val[2]}%)')
 
     case 2:
         print("You chose hex")

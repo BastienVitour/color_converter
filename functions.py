@@ -1,13 +1,18 @@
+from cleaners_and_checkers import *
+
 hex_tab = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"]
 
 
-def rgb_to_hex(r, g, b):
+def rgb_to_hex(value):
+
+    vals = clean_rgb_value(value)
+
+    r = int(vals[0])
+    g = int(vals[1])
+    b = int(vals[2])
+
     if r < 0 or r > 255 or g < 0 or g > 255 or b < 0 or b > 255:
         exit("Invalid value(s)")
-
-    print(r)
-    print(g)
-    print(b)
 
     hex_red = hex_tab[r // 16]+hex_tab[r % 16]
 
@@ -18,7 +23,14 @@ def rgb_to_hex(r, g, b):
     return [hex_red, hex_green, hex_blue]
 
 
-def rgb_to_hsl(r, g, b):
+def rgb_to_hsl(value):
+
+    vals = clean_rgb_value(value)
+
+    r = int(vals[0])
+    g = int(vals[1])
+    b = int(vals[2])
+
     if r < 0 or r > 255 or g < 0 or g > 255 or b < 0 or b > 255:
         exit("Invalid value(s)")
 
