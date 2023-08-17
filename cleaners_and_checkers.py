@@ -32,7 +32,7 @@ def hsl_checker(value):
 
 def clean_hex_value(hex):
 
-    string = hex.replaceAll('#', '')
+    string = hex.replace('#', '')
     # red = 0 let green; let blue
 
     if len(string) == 3:
@@ -40,9 +40,9 @@ def clean_hex_value(hex):
         green = string[1] + string[1]
         blue = string[2] + string[2]
     else:
-        red = string.slice(0, 2)
-        green = string.slice(2, 4)
-        blue = string.slice(4, 6)
+        red = string[0:2]
+        green = string[2:4]
+        blue = string[4:6]
 
     return [red, green, blue]
 

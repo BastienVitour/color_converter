@@ -22,14 +22,15 @@ match color_type:
 
     case 2:
         print("You chose hex")
-        red = input("Red value : ")
-        green = input("Green value : ")
-        blue = input("Blue value : ")
-        rgb_val = hex_to_rgb(red, green, blue)
-        hsl_val = hex_to_hsl(red, green, blue)
+        #red = input("Red value : ")
+        #green = input("Green value : ")
+        #blue = input("Blue value : ")
+        value = input("Value : ")
+        rgb_val = hex_to_rgb(value)
+        hsl_val = hex_to_hsl(value)
 
-        print(f'#{red.upper()}{green.upper()}{blue.upper()} => rgb({rgb_val[0]}, {rgb_val[1]}, {rgb_val[2]})')
-        print(f'#{red.upper()}{green.upper()}{blue.upper()} => hsl({hsl_val[0]}, {hsl_val[1]}, {hsl_val[2]})')
+        print(f'{value} => rgb({rgb_val[0]}, {rgb_val[1]}, {rgb_val[2]})')
+        print(f'{value} => hsl({hsl_val[0]}, {hsl_val[1]}, {hsl_val[2]})')
 
     case 3:
         print("You chose hsl")

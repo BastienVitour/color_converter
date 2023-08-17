@@ -72,7 +72,14 @@ def rgb_to_hsl(value):
     return [str(hue), str(saturation), str(lightness)]
 
 
-def hex_to_rgb(r, g, b):
+def hex_to_rgb(value):
+
+    vals = clean_hex_value(value)
+
+    r = vals[0]
+    g = vals[1]
+    b = vals[2]
+
     red = list(r.upper())
     rgb_red = hex_tab.index(red[0]) * 16 + hex_tab.index(red[1])
     green = list(g.upper())
@@ -83,10 +90,10 @@ def hex_to_rgb(r, g, b):
     return [rgb_red, rgb_green, rgb_blue]
 
 
-def hex_to_hsl(r, g, b):
-    rgb_vals = hex_to_rgb(r, g, b)
+def hex_to_hsl(value):
+    rgb_vals = hex_to_rgb(value)
 
-    return rgb_to_hsl(rgb_vals[0], rgb_vals[1], rgb_vals[2])
+    return rgb_to_hsl(f'rgb({rgb_vals[0]}, {rgb_vals[1]}, {rgb_vals[2]})')
 
 
 def hsl_to_rgb(h, s, li):
