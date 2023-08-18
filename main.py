@@ -11,9 +11,6 @@ color_type = int(input())
 match color_type:
     case 1:
         print("You chose rgb")
-        #red = int(input("Red value : "))
-        #green = int(input("Green value : "))
-        #blue = int(input("Blue value : "))
         value = input("Value : ")
         if rgb_checker(value):
             hex_val = rgb_to_hex(value)
@@ -26,9 +23,6 @@ match color_type:
 
     case 2:
         print("You chose hex")
-        #red = input("Red value : ")
-        #green = input("Green value : ")
-        #blue = input("Blue value : ")
         value = input("Value : ")
         if hex_checker(value):
             rgb_val = hex_to_rgb(value)
@@ -41,9 +35,6 @@ match color_type:
 
     case 3:
         print("You chose hsl")
-        #hue = float(input("Hue value : "))
-        #saturation = float(input("Saturation value : "))
-        #lightness = float(input("Lightness value : "))
         value = input("Value : ")
         if hsl_checker(value):
             rgb_val = hsl_to_rgb(value)

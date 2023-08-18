@@ -4,6 +4,11 @@ hex_tab = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D",
 
 
 def rgb_to_hex(value):
+    """
+    Fonction pour passer d'une couleur au format rgb à une couleur au format hexadécimal
+    :param value: la valeur rgb sous forme d'un string, qui sera nettoyée par la fonction clean_rgb_value
+    :return: les valeurs au format hexadécimal
+    """
 
     vals = clean_rgb_value(value)
 
@@ -24,6 +29,11 @@ def rgb_to_hex(value):
 
 
 def rgb_to_hsl(value):
+    """
+    Fonction pour passer d'une couleur au format rgb à une couleur au format hsl
+    :param value: la valeur rgb sous forme d'un string, qui sera nettoyée par la fonction clean_rgb_value
+    :return: les valeurs au format hsl
+    """
 
     vals = clean_rgb_value(value)
 
@@ -73,6 +83,11 @@ def rgb_to_hsl(value):
 
 
 def hex_to_rgb(value):
+    """
+    Fonction pour passer d'une couleur au format hexadécimal à une couleur au format rgb
+    :param value: la valeur hex sous forme d'un string, qui sera nettoyée par la fonction clean_hex_value
+    :return: les valeurs au format rgb
+    """
 
     vals = clean_hex_value(value)
 
@@ -91,12 +106,23 @@ def hex_to_rgb(value):
 
 
 def hex_to_hsl(value):
+    """
+    Fonction pour passer d'une couleur au format hexadécimal à une couleur au format hsl
+    :param value: la valeur hex sous forme d'un string, qui sera nettoyée par la fonction clean_hex_value
+    :return: les valeurs au format hsl
+    """
+
     rgb_vals = hex_to_rgb(value)
 
     return rgb_to_hsl(f'rgb({rgb_vals[0]}, {rgb_vals[1]}, {rgb_vals[2]})')
 
 
 def hsl_to_rgb(value):
+    """
+    Fonction pour passer d'une couleur au format hsl à une couleur au format rgb
+    :param value: la valeur hsl sous forme d'un string, qui sera nettoyée par la fonction clean_hsl_value
+    :return: les valeurs au format rgb
+    """
 
     vals = clean_hsl_value(value)
 
@@ -133,6 +159,11 @@ def hsl_to_rgb(value):
 
 
 def hsl_to_hex(value):
+    """
+    Fonction pour passer d'une couleur au format hsl à une couleur au format hexadécimal
+    :param value: la valeur hsl sous forme d'un string, qui sera nettoyée par la fonction clean_hsl_value
+    :return: les valeurs au format hexadécimal
+    """
 
     rgb_vals = hsl_to_rgb(value)
 
