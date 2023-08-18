@@ -12,7 +12,7 @@ def hex_checker(value):
 
 def rgb_checker(value):
 
-    reg = r"^rgb\(\d{1, 3}, ?\d{1, 3}, ?\d{1, 3}\)$"
+    reg = r"^rgb\(\d{1,3}, ?\d{1,3}, ?\d{1,3}\)$"
 
     if re.match(reg, value):
         return True
@@ -22,7 +22,7 @@ def rgb_checker(value):
 
 def hsl_checker(value):
 
-    reg = r"^hsl\((?:\d{1, 3}(?:\.\d{1})?), ?(?:\d{1, 3}(?:\.\d{1})?) %, ?(?:\d{1, 3}(?:\.\d{1})?) % \)$"
+    reg = r"^hsl\((?:\d{1,3}(?:\.\d{1})?), ?(?:\d{1,3}(?:\.\d{1})?)%, ?(?:\d{1,3}(?:\.\d{1})?)%\)$"
 
     if re.match(reg, value):
         return True
@@ -56,7 +56,6 @@ def clean_rgb_value(value):
 
 def clean_hsl_value(value):
 
-    string = value.toString()
-    values = string.split('').slice(4).join('').replaceAll(')', '').replaceAll('%', '').split(', ')
+    values = value[4:].replace(')', '').replace('%', '').split(', ')
 
     return [float(values[0]), float(values[1]), float(values[2])]

@@ -96,7 +96,14 @@ def hex_to_hsl(value):
     return rgb_to_hsl(f'rgb({rgb_vals[0]}, {rgb_vals[1]}, {rgb_vals[2]})')
 
 
-def hsl_to_rgb(h, s, li):
+def hsl_to_rgb(value):
+
+    vals = clean_hsl_value(value)
+
+    h = vals[0]
+    s = vals[1]
+    li = vals[2]
+
     d = (s / 100) * (1 - abs(2 * (li / 100) - 1))
 
     x = d * (1 - abs((h / 60) % 2 - 1))
@@ -125,8 +132,8 @@ def hsl_to_rgb(h, s, li):
     return [int(round(red)), int(round(green)), int(round(blue))]
 
 
-def hsl_to_hex(h, s, li):
+def hsl_to_hex(value):
 
-    rgb_vals = hsl_to_rgb(h, s, li)
+    rgb_vals = hsl_to_rgb(value)
 
-    return rgb_to_hex(rgb_vals[0], rgb_vals[1], rgb_vals[2])
+    return rgb_to_hex(f'rgb({rgb_vals[0]}, {rgb_vals[1]}, {rgb_vals[2]})')
